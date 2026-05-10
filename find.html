@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FINDU | Find</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="FINDU Home">
+        <span class="brand-mark">F</span>
+        <span>FINDU</span>
+      </a>
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a href="index.html">Home</a>
+        <a class="active" href="find.html">Find</a>
+        <a href="register.html">Register</a>
+        <a href="notice.html">Notice</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-head">
+        <div>
+          <p class="eyebrow">Find & Claim</p>
+          <h1>분실물 찾기와 수령 신청</h1>
+          <p>
+            등록된 분실물을 검색하고, 본인의 물건으로 확인되면 같은 화면에서 바로
+            수령 신청을 진행할 수 있습니다.
+          </p>
+        </div>
+        <div class="head-summary">
+          <article>
+            <b>18</b>
+            <span>보관 중</span>
+          </article>
+          <article>
+            <b>9</b>
+            <span>수령 대기</span>
+          </article>
+          <article>
+            <b>2F</b>
+            <span>학생지원센터</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="finder-layout">
+        <aside class="filter-panel" aria-label="분실물 검색 필터">
+          <h2>검색 조건</h2>
+          <label>
+            검색어
+            <input id="itemSearch" type="search" placeholder="물품명, 특징, 장소" />
+          </label>
+          <label>
+            카테고리
+            <select id="categoryFilter">
+              <option value="all">전체</option>
+              <option value="전자기기">전자기기</option>
+              <option value="카드/지갑">카드/지갑</option>
+              <option value="의류">의류</option>
+              <option value="책/문구">책/문구</option>
+              <option value="기타">기타</option>
+            </select>
+          </label>
+          <label>
+            발견 장소
+            <select id="placeFilter">
+              <option value="all">전체</option>
+              <option value="학술정보관">학술정보관</option>
+              <option value="학생복지관">학생복지관</option>
+              <option value="제1공학관">제1공학관</option>
+              <option value="제3공학관">제3공학관</option>
+              <option value="제1학술관">제1학술관</option>
+              <option value="라이언스홀">라이언스홀</option>
+              <option value="컨퍼런스홀">컨퍼런스홀</option>
+              <option value="창의인재원">창의인재원</option>
+              <option value="기타">기타</option>
+            </select>
+          </label>
+          <label>
+            상태
+            <select id="statusFilter">
+              <option value="all">전체</option>
+              <option value="보관 중">보관 중</option>
+              <option value="수령 대기">수령 대기</option>
+              <option value="수령 완료">수령 완료</option>
+            </select>
+          </label>
+          <button id="resetFilters" type="button">조건 초기화</button>
+        </aside>
+
+        <section class="results-panel" aria-label="분실물 목록">
+          <div class="results-top">
+            <h2>분실물 목록</h2>
+            <span id="resultCount">0개 표시 중</span>
+          </div>
+
+          <div class="lost-list" id="lostList">
+            <article class="lost-card" data-name="검정 노트북 파우치" data-category="전자기기" data-place="학술정보관" data-status="보관 중" data-detail="학술정보관 2층 창가 좌석에서 발견되었습니다. 안쪽에 충전 케이블이 함께 들어 있습니다.">
+              <div class="item-thumb laptop"></div>
+              <div>
+                <span class="status available">보관 중</span>
+                <h3>검정 노트북 파우치</h3>
+                <p>학술정보관 · 오늘 13:20 · 전자기기</p>
+                <button class="detail-button" type="button">상세 및 수령 신청</button>
+              </div>
+            </article>
+            <article class="lost-card" data-name="파란색 학생증 카드" data-category="카드/지갑" data-place="학생복지관" data-status="수령 대기" data-detail="학생복지관 1층 로비 자동문 근처에서 발견되었습니다. 이름 일부 확인 후 수령 가능합니다.">
+              <div class="item-thumb card"></div>
+              <div>
+                <span class="status waiting">수령 대기</span>
+                <h3>파란색 학생증 카드</h3>
+                <p>학생복지관 · 어제 18:10 · 카드/지갑</p>
+                <button class="detail-button" type="button">상세 및 수령 신청</button>
+              </div>
+            </article>
+            <article class="lost-card" data-name="흰색 무선 이어폰" data-category="전자기기" data-place="제3공학관" data-status="보관 중" data-detail="제3공학관 3층 복도 벤치 위에서 발견되었습니다. 케이스 오른쪽에 작은 스티커가 있습니다.">
+              <div class="item-thumb earbuds"></div>
+              <div>
+                <span class="status available">보관 중</span>
+                <h3>흰색 무선 이어폰</h3>
+                <p>제3공학관 · 어제 15:40 · 전자기기</p>
+                <button class="detail-button" type="button">상세 및 수령 신청</button>
+              </div>
+            </article>
+            <article class="lost-card" data-name="회색 후드집업" data-category="의류" data-place="컨퍼런스홀" data-status="보관 중" data-detail="컨퍼런스홀 앞 로비 의자에서 발견되었습니다. 왼쪽 소매에 흰색 로고가 있습니다.">
+              <div class="item-thumb hoodie"></div>
+              <div>
+                <span class="status available">보관 중</span>
+                <h3>회색 후드집업</h3>
+                <p>컨퍼런스홀 · 5월 9일 · 의류</p>
+                <button class="detail-button" type="button">상세 및 수령 신청</button>
+              </div>
+            </article>
+            <article class="lost-card" data-name="미적분 전공 책" data-category="책/문구" data-place="제1학술관" data-status="수령 완료" data-detail="제1학술관 2층 강의실에서 발견되었고, 현재 수령 완료 처리되었습니다.">
+              <div class="item-thumb book"></div>
+              <div>
+                <span class="status done">수령 완료</span>
+                <h3>미적분 전공 책</h3>
+                <p>제1학술관 · 5월 8일 · 책/문구</p>
+                <button class="detail-button" type="button">상세 보기</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <aside class="claim-panel" aria-label="수령 신청">
+          <h2>상세 정보</h2>
+          <div id="selectedItem" class="empty-state">
+            <strong>분실물을 선택해 주세요.</strong>
+            <p>목록에서 물건을 선택하면 상세 정보와 수령 신청 입력란이 표시됩니다.</p>
+          </div>
+          <form id="claimForm" class="claim-form hidden">
+            <div class="selected-box">
+              <span id="selectedStatus" class="status available">보관 중</span>
+              <h3 id="selectedName">선택된 물품</h3>
+              <p id="selectedDesc">상세 설명</p>
+            </div>
+            <label>
+              학번
+              <input id="studentId" type="text" placeholder="예: 20241234" required />
+            </label>
+            <label>
+              이름
+              <input id="studentName" type="text" placeholder="이름 입력" required />
+            </label>
+            <label>
+              본인 확인 특징
+              <textarea id="proofText" rows="4" placeholder="물건의 특징이나 본인 확인 정보를 적어 주세요." required></textarea>
+            </label>
+            <button type="submit">수령 신청하기</button>
+            <p id="claimResult" class="claim-result" aria-live="polite"></p>
+          </form>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>FINDU Find</span>
+      <span>Search and claim in one page</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
